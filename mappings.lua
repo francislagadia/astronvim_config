@@ -20,6 +20,23 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- Disable Normal mappings
+    ["<C-s>"] = false,
+    ["<C-q>"] = false,
+    ["Q"] = false,
+    -- Disable Buffer navigation mappings
+    ["<S-l>"] = false,
+    ["<S-h>"] = false,
+    -- Disable Split navigation mappings
+    ["<C-h>"] = false,
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
+    ["<C-l>"] = false,
+    -- Add alt key for mac to not collide with mission control
+    ["<C-A-Up>"] = { "<cmd>resize -2<CR>", desc = "Resize split up" },
+    ["<C-A-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" },
+    ["<C-A-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" },
+    ["<C-A-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" },
   },
   t = {
     -- setting a mapping to false will disable it
