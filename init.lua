@@ -53,6 +53,33 @@ return {
     servers = {
       -- "pyright"
     },
+    config = {
+      -- example for addings schemas to yamlls
+      -- yamlls = { -- override table for require("lspconfig").yamlls.setup({...})
+      --   settings = {
+      --     yaml = {
+      --       schemas = {
+      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+      --       },
+      --     },
+      --   },
+      -- },
+      pyright = {
+        single_file_support = false,
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "on",
+              extraPaths = {
+                "/Users/flagadia/github/chromeriver/qa-shared-services/"
+              },
+            }
+          }
+        }
+      }
+    },
   },
 
   -- Configure require("lazy").setup() options
