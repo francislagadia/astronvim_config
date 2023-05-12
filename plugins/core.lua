@@ -77,9 +77,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
-      opts.window = {
-        60,
-      }
+      opts.window.width = 60
       opts.filesystem.filtered_items = {
         hide_dotfiles = false,
         hide_by_name = {
