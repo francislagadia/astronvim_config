@@ -28,7 +28,10 @@ return {
         },
         default_strategy = "dap",
         adapters = {
-          require "neotest-python",
+          require("neotest-python")({
+            dap = { justMyCode = false },
+            args = {"--log-level", "DEBUG"},
+          }),
         },
       }
     end,
