@@ -66,16 +66,16 @@ return {
       --     },
       --   },
       -- },
-      pyright = {
-        single_file_support = false,
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "on",
-            }
-          }
-        }
-      }
+      -- pyright = {
+      --   single_file_support = false,
+      --   settings = {
+      --     python = {
+      --       analysis = {
+      --         typeCheckingMode = "on",
+      --       }
+      --     }
+      --   }
+      -- }
     },
   },
 
