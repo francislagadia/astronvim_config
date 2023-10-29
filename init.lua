@@ -72,9 +72,6 @@ return {
           python = {
             analysis = {
               typeCheckingMode = "on",
-              extraPaths = {
-                "/Users/flagadia/github/chromeriver/qa-shared-services/"
-              },
             }
           }
         }
