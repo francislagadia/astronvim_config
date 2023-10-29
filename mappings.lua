@@ -37,6 +37,8 @@ return {
     ["<C-A-Down>"] = { "<cmd>resize +2<CR>", desc = "Resize split down" },
     ["<C-A-Left>"] = { "<cmd>vertical resize -2<CR>", desc = "Resize split left" },
     ["<C-A-Right>"] = { "<cmd>vertical resize +2<CR>", desc = "Resize split right" },
+    -- vim-easy-align mappings
+    ["ga"] = {  ":EasyAlign ", desc = "EasyAlign"},
     -- neo-test mappings
     ["<leader>r"] = { name = "Run Test" },
     -- run nearest
@@ -50,6 +52,10 @@ return {
     ["<leader>rS"] = { "<cmd>lua require('neotest').run.stop()<CR>", desc = "Stop" },
     ["<leader>rs"] = { "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "Toggle Summary" },
     ["<leader>rp"] = { "<cmd>lua require('neotest').output_panel.toggle()<CR>", desc = "Toggle Output Panel" },
+  },
+  v = {
+    -- vim-easy-align mappings
+    ["ga"] = {  ":EasyAlign ", desc = "EasyAlign"},
   },
   t = {
     -- setting a mapping to false will disable it
