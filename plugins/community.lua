@@ -14,6 +14,26 @@ return {
   { import = "astrocommunity.test.neotest" },
   {
     "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- this adding nvim-treesitter
+      "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-plenary",
+      "nvim-neotest/neotest-vim-test",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "rouge8/neotest-rust",
+      {
+        "folke/neodev.nvim",
+        opts = function(_, opts)
+          opts.library = opts.library or {}
+          if opts.library.plugins ~= true then
+            opts.library.plugins = require("astronvim.utils").list_insert_unique(opts.library.plugins, "neotest")
+          end
+          opts.library.types = true
+        end,
+      },
+    },
     opts = function()
       return {
         -- your neotest config here
@@ -26,9 +46,35 @@ return {
             -- Runner to use. Will use pytest if available by default.
             -- Can be a function to return dynamic value.
             runner = "pytest",
-          })
+            is_test_file = function(file_path)
+              local Path = require("plenary.path")
+              if not vim.endswith(file_path, ".py") then
+                return false
+              end
+              local elems = vim.split(file_path, Path.path.sep)
+              local file_name = elems[#elems]
+              return vim.startswith(file_name, "test_") or vim.endswith(file_name, "_test.py") or vim.startswith(file_name, "Test")
+            end
+          }),
+          -- require("neotest-plenary"),
+          -- require("neotest-vim-test")({
+          --   ignore_file_types = { "python", "vim", "lua" },
+          -- }),
         }
       }
+    end,
+    config = function(_, opts)
+      -- get neotest namespace (api call creates or returns namespace)
+      local neotest_ns = vim.api.nvim_create_namespace "neotest"
+      vim.diagnostic.config({
+        virtual_text = {
+          format = function(diagnostic)
+            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+            return message
+          end,
+        },
+      }, neotest_ns)
+      require("neotest").setup(opts)
     end,
   }
 }
