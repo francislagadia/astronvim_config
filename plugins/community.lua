@@ -14,35 +14,21 @@ return {
   { import = "astrocommunity.test.neotest" },
   {
     "nvim-neotest/neotest",
-    config = function()
-      -- get neotest namespace (api call creates or returns namespace)
-      local neotest_ns = vim.api.nvim_create_namespace "neotest"
-      vim.diagnostic.config({
-        virtual_text = {
-          format = function(diagnostic)
-            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-            return message
-          end,
-        },
-      }, neotest_ns)
-      require("neotest").setup {
+    opts = function()
+      return {
         -- your neotest config here
-        output = {
-          enabled = true,
-          open_on_run = "yes",
-        },
-        default_strategy = "dap",
         adapters = {
           require("neotest-python")({
             dap = { justMyCode = false },
+            -- Command line arguments for runner
+            -- Can also be a function to return dynamic values
             args = {"--log-level", "DEBUG"},
-          }),
-        },
+            -- Runner to use. Will use pytest if available by default.
+            -- Can be a function to return dynamic value.
+            runner = "pytest",
+          })
+        }
       }
     end,
-    ft = { "python" },
-    dependencies = {
-      "nvim-neotest/neotest-python",
-    },
   }
 }
