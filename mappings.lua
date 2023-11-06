@@ -43,10 +43,8 @@ return {
     ["<leader>r"] = { name = "Run Test" },
     -- run nearest
     ["<leader>rn"] = { "<cmd>lua require('neotest').run.run()<CR>", desc = "Run Nearest (Default)" },
-    ["<leader>rN"] = { "<cmd>lua require('neotest').run.run({extra_args = {'-n', 'auto'}})<CR>", desc = "Run Nearest (xdist)" },
     -- run file
     ["<leader>rf"] = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run File" },
-    ["<leader>rF"] = { "<cmd>lua require('neotest').run.run({path = vim.fn.expand('%'), extra_args = {'-n', 'auto'}})<cr>", desc = "Run File (xdist)" },
     ["<leader>rr"] = { "<cmd>lua require('neotest').run.run_last()<CR>", desc = "Run Last" },
     ["<leader>ro"] = { "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc = "Output" },
     ["<leader>rS"] = { "<cmd>lua require('neotest').run.stop()<CR>", desc = "Stop" },
