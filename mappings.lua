@@ -43,6 +43,7 @@ return {
     ["<leader>r"] = { name = "Run Test" },
     -- run nearest
     ["<leader>rn"] = { "<cmd>lua require('neotest').run.run()<CR>", desc = "Run Nearest (Default)" },
+    ["<leader>rd"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>", desc = "Debug Nearest Test" },
     -- run file
     ["<leader>rf"] = { "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", desc = "Run File" },
     ["<leader>rr"] = { "<cmd>lua require('neotest').run.run_last()<CR>", desc = "Run Last" },
@@ -50,6 +51,12 @@ return {
     ["<leader>rS"] = { "<cmd>lua require('neotest').run.stop()<CR>", desc = "Stop" },
     ["<leader>rs"] = { "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "Toggle Summary" },
     ["<leader>rp"] = { "<cmd>lua require('neotest').output_panel.toggle()<CR>", desc = "Toggle Output Panel" },
+    -- debug menu mappings
+    ["<leader>dd"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>", desc = "Debug Nearest Test" },
+    -- Github Copilot mappings
+    ["<leader>G"] = { name = "GitHub Copilot" },
+    ["<leader>GG"] = { "<cmd>lua require('copilot.panel').open({ position='right', ratio=0.4 })<CR>", desc = "Open Copilot Panel in split right"},
+    ["<leader>Gr"] = { "<cmd>lua require('copilot.panel').refresh()<CR>", desc = "Refresh suggestions"},
   },
   v = {
     -- vim-easy-align mappings
