@@ -12,6 +12,9 @@ return {
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.test.neotest" },
+  { import = "astrocommunity.colorscheme.gruvbox-nvim" },
+  { import = "astrocommunity.colorscheme.gruvbox-baby" },
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
   {
     "nvim-neotest/neotest",
     dependencies = {
@@ -39,7 +42,7 @@ return {
         -- your neotest config here
         adapters = {
           require("neotest-python")({
-            dap = { justMyCode = false },
+            dap = { justMyCode = true },
             -- Command line arguments for runner
             -- Can also be a function to return dynamic values
             args = {"--log-level", "DEBUG"},
