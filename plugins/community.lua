@@ -10,7 +10,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.syntax.vim-easy-align" },
+  -- { import = "astrocommunity.syntax.vim-easy-align" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },
   { import = "astrocommunity.colorscheme.gruvbox-baby" },
@@ -62,5 +62,6 @@ return {
         }
       }
     end,
-  }
+  },
+  { "junegunn/vim-easy-align", lazy=false}
 }

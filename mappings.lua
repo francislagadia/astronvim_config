@@ -57,6 +57,14 @@ return {
     ["<leader>G"] = { name = "GitHub Copilot" },
     ["<leader>GG"] = { "<cmd>lua require('copilot.panel').open({ position='right', ratio=0.4 })<CR>", desc = "Open Copilot Panel in split right"},
     ["<leader>Gr"] = { "<cmd>lua require('copilot.panel').refresh()<CR>", desc = "Refresh suggestions"},
+    -- Quickfix mappings
+    ["<leader>q"] = { name = "Quickfix", desc="Quickfix" },
+    ["<leader>qc"] = { "<cmd>ccl<CR>", desc = "Close quickfix"},
+    ["<leader>qo"] = { "<cmd>copen<CR>", desc = "Open quickfix"},
+    ["<leader>qn"] = { "<cmd>cnext<CR>", desc = "Next quickfix"},
+    ["<leader>qp"] = { "<cmd>cprev<CR>", desc = "Previous quickfix"},
+    ["[q"] = { "<cmd>cprev<CR>", desc = "Previous quickfix"},
+    ["]q"] = { "<cmd>cnext<CR>", desc = "Next quickfix"},
   },
   v = {
     -- vim-easy-align mappings
