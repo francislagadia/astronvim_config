@@ -96,6 +96,8 @@ return {
           ".secrets.toml",
           "pyrightconfig.json",
           ".pylintrc",
+          ".yml",
+          ".yaml",
         },
         never_show_by_pattern ={
           "**/*.py[a-zA-Z]"
